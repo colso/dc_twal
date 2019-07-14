@@ -53,6 +53,13 @@ Initialze DB, Table and User
 
 ``` grant all privileges on TWAL_DB.* to twal@%; ```
 
+Mount Database and Download disk
+--------------------------------
+
+* Bind mount position
+
+``` # mount --bind <database disk position> ~/dc_twal/data ```
+``` # mount --bind <transmission complete disk position> ~/dc_twal/transmission-data ```
 
 start all component
 -------------------
