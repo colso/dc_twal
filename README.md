@@ -6,7 +6,9 @@ Install Docker and Docker-Compose
 
 start mariaDB
 -------------
+
 ``` # docker-compose build mariadb ```
+
 ``` # docker-compose up -d maradb ```
 
 Initialze DB, Table and User
