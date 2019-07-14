@@ -1,0 +1,71 @@
+version: '3.4'
+
+services:
+  mariadb:
+    build:
+      context: .
+      dockerfile: ./maria/Dockerfile
+#    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: TWAL_DB
+      MYSQL_USER: twal
+      MYSQL_PASSWORD: dhthfl
+#    networks:
+#      - frontend
+#      - backend
+    ports:
+      - "3306:3306"
+    volumes:
+      - ${PWD}/data:/var/lib/mysql 
+
+  twal:
+    build:
+      context: .
+      dockerfile: ./twal/Dockerfile
+    environment:
+      - LC_ALL=C.UTF-8
+
+  transmission:
+    image: linuxserver/transmission
+    ports:
+      - "9091:9091"
+      - "8888:8888"
+    dns:
+      - 8.8.8.8
+    volumes:
+      - ${PWD}/transmission-data/:/downloads/complete/
+    environment:
+      - TRANSMISSION_RPC_PASSWORD=dhthfl
+      - TRANSMISSION_RPC_USERNAME=twal
+
+  web:
+    image: httpd:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ${PWD}/transmission-data/:/usr/local/apache2/htdocs
+  tr:
+    build:
+      context: .
+      dockerfile: ./tr/Dockerfile
+    environment:
+      - LC_ALL=C.UTF-8
+    volumes:
+      - ${PWD}/transmission-data/:/downloads/complete/
+
+#  networks:
+#    frontend:
+#      driver: bridge
+#    backend:
+#      driver: bridge
+#
+#  default:
+#    external: 
+#      name: bridge
+#    internal:
+#      name: mynet
+
+#  backend:
+#    driver: bridge
+#    

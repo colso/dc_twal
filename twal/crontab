@@ -1,0 +1,1 @@
+*/1 * * * *  /root/twal/main.py >> /tmp/logs  2>&1
