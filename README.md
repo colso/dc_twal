@@ -11,7 +11,7 @@ start mariaDB
 
 Initialze DB, Table and User
 ----------------------------
-* Access to DB runinng in docker
+* Access to DB runinng in docker *
 ''' # ID=$(docker ps | grep twal_mariadb_1 | awk '{print $1}') '''
 ''' # docker exec -it $ID /bin/bash '''
 
