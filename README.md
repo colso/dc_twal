@@ -32,3 +32,7 @@ start all component
 
 ``` # docker-compose up -d ```
 
+Set charset for web
+-------------------
+
+``` # ./web_set_charset.sh ```
