@@ -4,6 +4,8 @@ DC_TWAL (docker-compose TWAL)
 Install Docker and Docker-Compose 
 ---------------------------------
 
+https://docs.docker.com/compose/install/
+
 start mariaDB
 -------------
 
