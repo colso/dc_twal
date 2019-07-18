@@ -18,7 +18,7 @@ Initialze DB, Table and User
 
 * Initialize DB using shell script
 
-``` # ./db_querys.sh ```
+``` # chmod +x db_querys.sh && ./db_querys.sh ```
 
 Mount Database and Download disk
 --------------------------------
