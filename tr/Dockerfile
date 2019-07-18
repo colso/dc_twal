@@ -29,9 +29,9 @@ RUN pip install pymysql
 RUN pip install transmissionrpc
 
 COPY ./tr/locale /etc/default/locale
-#COPY ./tr/crontab /etc/cron.d/run-script
-#RUN chmod 0644 /etc/cron.d/run-script
-#RUN crontab /etc/cron.d/run-script
+COPY ./tr/crontab /etc/cron.d/run-script
+RUN chmod 0644 /etc/cron.d/run-script
+RUN crontab /etc/cron.d/run-script
 COPY ./tr/run.sh /root/run.sh
 RUN chmod 0700 /root/run.sh
 #
