@@ -36,10 +36,11 @@ COPY ./tr/run.sh /root/run.sh
 RUN chmod 0700 /root/run.sh
 #
 RUN touch /tmp/temp
-RUN rm -rf /tmp/logs
+RUN mkdir -p /tmp/log/
 RUN git clone https://github.com/colso/tm.git /root/tm
 RUN rm -rf /root/tm/config.ini
 ADD ./tr/ini/config.ini /root/tm/config.ini
+
 CMD ["cron", "-f"]
 #/usr/sbin/crond
 
